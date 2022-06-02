@@ -2,29 +2,61 @@ package com.mycompany.cryptography;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import util.FileResource;
 
 public class CaesarCipherTwoTest {
+	
+	CaesarCipherTwo cc;
+	FileResource fr;
+	String currentResult;
+	
+	@Before
+	public void setUp() {
+		fr = new FileResource("data/mysteryTwoKeysPractice.txt");  // testing with a file
+		cc = new CaesarCipherTwo(17, 4);
+		currentResult = fr.asString();
+	}
+	
+	@Test
+	public void encryptionTest() {
+		cc = new CaesarCipherTwo(21, 8);
+		String encrypted = cc.encrypt("Can you imagine life WITHOUT the internet AND computers in your pocket?");
+		assertEquals("Xii twp duvodvz gqam EDBCWPB bcm qibzzimo VVY xwhxpbzzn dv gjcm kwxszb?", encrypted);
+	}
 
 	@Test
-	public void simpleTests() {
-		String input1 = "Aal uttx hm aal Qtct Fhljha pl Wbdl. Pvxvxlx!";
-		String input2 = "Akag tjw Xibhr awoa aoee xakex znxag xwko";
-		System.out.println("Called breakCaesarCipher():\t" + breakCaesarCipher(input1));
-		System.out.println("Called breakCaesarCipher():\t" + breakCaesarCipher(input2));
+	public void decryptionTest() {
+		cc = new CaesarCipherTwo(14, 24);
+		String decrypted = cc.decrypt("Hfs cpwewloj loks cd Hoto kyg Cyy.");
+		assertEquals("The original name of Java was Oak.", decrypted);
+	}
+	
+	@Test
+	public void breakCaesarCipherTest() {
+		String breakedCipher = breakCaesarCipher(currentResult);
+		System.out.println("Called breakCaesarCipher():\n" + breakedCipher);
+		assertEquals(breakedCipher, cc.decrypt(currentResult));
 		
-		assertEquals(breakCaesarCipher(input1), "The name of the Java Mascot is Duke. Woeoeee!");
-		assertEquals(breakCaesarCipher(input2), "Eren and Emily have evil eerie green ears");
+		String result1 = breakCaesarCipher("Aal uttx hm aal Qtct Fhljha pl Wbdl. Pvxvxlx!");
+		System.out.println("Called breakCaesarCipher():\t" + result1);
 		
-		// Testing breakCaesarCipher() with mysteryTwoKeysPractice.txt
-		FileResource fr = new FileResource("data/mysteryTwoKeysPractice.txt");
-		String text = fr.asString();
-		CaesarCipherTwo cc = new CaesarCipherTwo(17, 4);	
-		System.out.println("Called breakCaesarCipher():\n" + breakCaesarCipher(text));
+		String result2 = breakCaesarCipher("Akag tjw Xibhr awoa aoee xakex znxag xwko");
+		System.out.println("Called breakCaesarCipher():\t" + result2);
 		
-		assertEquals(cc.decrypt(text), breakCaesarCipher(text));
+		assertEquals(result1, "The name of the Java Mascot is Duke. Woeoeee!");
+		assertEquals(result2, "Eren and Emily have evil eerie green ears");
+	}
+	
+	@Test
+	public void simpleCaesarCipherTwoTest() {
+		String encrypted = cc.encrypt(currentResult);
+		String decrypted = cc.decrypt(encrypted);
+		assertEquals(currentResult, decrypted);
+		
+//		System.out.println("Encrypted string:\n" + encrypted + "\nDecrypted string:\n" + decrypted);
 	}
 	
 	private String breakCaesarCipher(String input) {

@@ -2,26 +2,57 @@ package com.mycompany.cryptography;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import util.FileResource;
 
 public class CaesarCipherTest {
+	
+	CaesarCipher cc;
+	FileResource fr;
+	String currentResult;
+	
+	@Before
+	public void setUp() {
+		fr = new FileResource("data/wordsLotsOfEs.txt");  // testing with a file
+		cc = new CaesarCipher(18);
+		currentResult = fr.asString();
+	}
+	
+	@Test
+	public void encryptionTest() {
+		String encrypted = cc.encrypt(currentResult);
+		assertTrue(encrypted.contains("Bmkl s lwkl kljafy oalz dglk gx wwwwwwwwwwwwwwwwwk"));
+		cc = new CaesarCipher(15);
+		encrypted = cc.encrypt("Can you imagine life WITHOUT the internet AND computers in your pocket?");
+		assertTrue(encrypted.contains("Rpc ndj xbpvxct axut LXIWDJI iwt xcitgcti PCS rdbejitgh xc ndjg edrzti?"));
+	}
 
 	@Test
-	public void simpleTests() {
-		FileResource fr = new FileResource("data/wordsLotsOfEs.txt");
-		String text = fr.asString();
+	public void decryptionTest() {
+		String decrypted = cc.decrypt("Bmkl s lwkl kljafy oalz dglk gx wwwwwwwwwwwwwwwwwk");
+		assertTrue(decrypted.contains("Just a test string with lots of eeeeeeeeeeeeeeeees"));
+		cc = new CaesarCipher(15);
+		decrypted = cc.decrypt("Rpc ndj xbpvxct axut LXIWDJI iwt xcitgcti PCS rdbejitgh xc ndjg edrzti?");
+		assertTrue(decrypted.contains("Can you imagine life WITHOUT the internet AND computers in your pocket?"));
+	}
+	
+	@Test
+	public void breakCaesarCipherTest() {
+		String breakCipher = breakCaesarCipher(cc.encrypt(currentResult));
+		assertEquals(currentResult, breakCipher);
 		
-		CaesarCipher cc1 = new CaesarCipher(18);
-		String encrypted = cc1.encrypt(text);
-		String decrypted = cc1.decrypt(encrypted);
-		System.out.println("Encrypted string:\n" + encrypted + "\nDecrypted string:\n" + decrypted);
-		assertEquals(text, decrypted);
-		
-		String breakCipher = breakCaesarCipher(encrypted);
-		assertEquals(text, breakCipher);
 		System.out.println("Called breakCaesarCipher():\n" + breakCipher);
+	}
+	
+	@Test
+	public void simpleCaesarCipherTest() {
+		String encrypted = cc.encrypt(currentResult);
+		String decrypted = cc.decrypt(encrypted);
+		assertEquals(currentResult, decrypted);
+		
+		System.out.println("Encrypted string:\n" + encrypted + "\nDecrypted string:\n" + decrypted);
 	}
 	
 	private String breakCaesarCipher(String input) {
