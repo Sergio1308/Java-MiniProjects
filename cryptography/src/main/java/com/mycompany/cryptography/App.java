@@ -16,6 +16,6 @@ public class App
 		CaesarCipherTwo cc1 = new CaesarCipherTwo(14, 24);
 		String encrypted = cc1.encrypt(text);
 		String decrypted = cc1.decrypt(encrypted);
-		System.out.println("\nDecrypted string:\n" + decrypted);
+		System.out.println("Encrypted string:\n" + encrypted + "Decrypted string:\n" + decrypted);
     }
 }
