@@ -2,11 +2,6 @@ package com.mycompany.cryptography;
 
 public class WordPlay {
 	
-	public static void main(String[] args) {
-		WordPlay w = new WordPlay();
-		w.testReplaceVowels();
-	}
-	
 	public boolean isVowel(char ch) {
 		String vowels = "aeiouAEIOU";
 		return vowels.indexOf(ch) != -1;
@@ -39,21 +34,4 @@ public class WordPlay {
 		}
 		return emphasizedPhrase.toString();
 	}
-	
-	public void testIsVowel() {
-		System.out.println(isVowel('a'));
-		System.out.println(isVowel('y'));
-		System.out.println(isVowel('e'));
-		System.out.println(isVowel('A'));
-	}
-	
-	public void testReplaceVowels() {
-		System.out.println(replaceVowels("Hello World EeAyYOkayOKAY#", '*'));
-	}
-	
-	public void testEmphasize() {
-		System.out.println(emphasize("dna ctgaaactga", 'a'));
-		System.out.println(emphasize("Mary Bella Abracadabra", 'a'));
-	}
-
 }
