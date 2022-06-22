@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.mycompany.CaesarCipher.CaesarCipher;
+
 import util.FileResource;
 
 public class CaesarCipherTest {
