@@ -1,1 +1,3 @@
-com\mycompany\cryptography\AppTest.class
+com\mycompany\cryptography\WordPlayTest.class
+com\mycompany\cryptography\CaesarCipherTwoTest.class
+com\mycompany\cryptography\CaesarCipherTest.class
