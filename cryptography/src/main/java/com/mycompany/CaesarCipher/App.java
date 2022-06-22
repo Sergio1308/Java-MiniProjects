@@ -1,4 +1,4 @@
-package com.mycompany.cryptography;
+package com.mycompany.CaesarCipher;
 
 import util.FileResource;
 
