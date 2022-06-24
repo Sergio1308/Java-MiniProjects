@@ -1,8 +1,11 @@
 # Java-MiniProjects
 This repository contains several mini-projects using Java programming language that have been completed to gain practice and skill training.
 # Cryptography
-This mini-project is about the basics of cryptography, the science of keeping information private and secure. It contains cryptographic systems, which were used from the Roman Empire through the early 1900s, so these ciphers have been implemented, also implemented an algorithm for breaking them. 
-The project involved not only string processing, but also arrays—a way to store an indexable sequence of elements. 
+This mini-project is about the basics of cryptography, the science of keeping information private and secure. 
+It contains cryptographic systems that were used since the Roman Empire and the early 1900s. 
+These ciphers, as well as an algorithm for breaking them, have been implemented in this project. 
+The project involves not only string processing, but also arrays—a way to store an indexable sequence of elements.\
+
 Skills gained:
 - combine Strings using concatenation; 
 - build Strings within a Java program using StringBuilder; 
