@@ -1,7 +1,5 @@
 package com.mycompany.VigenereCipher;
 
-import util.*;
-
 public class CaesarCracker {
     char mostCommon;
     
@@ -13,29 +11,29 @@ public class CaesarCracker {
         mostCommon = c;
     }
     
-    public int[] countLetters(String message){
+    public int[] countLetters(String message) {
         String alph = "abcdefghijklmnopqrstuvwxyz";
         int[] counts = new int[26];
-        for(int k=0; k < message.length(); k++){
-            int dex = alph.indexOf(Character.toLowerCase(message.charAt(k)));
-            if (dex != -1){
+        for(int i = 0; i < message.length(); i++) {
+            int dex = alph.indexOf(Character.toLowerCase(message.charAt(i)));
+            if (dex != -1) {
                 counts[dex] += 1;
             }
         }
         return counts;
     }
     
-    public int maxIndex(int[] vals){
+    public int maxIndex(int[] vals) {
         int maxDex = 0;
-        for(int k=0; k < vals.length; k++){
-            if (vals[k] > vals[maxDex]){
-                maxDex = k;
+        for(int i = 0; i < vals.length; i++) {
+            if (vals[i] > vals[maxDex]) {
+                maxDex = i;
             }
         }
         return maxDex;
     }
 
-    public int getKey(String encrypted){
+    public int getKey(String encrypted) {
         int[] freqs = countLetters(encrypted);
         int maxDex = maxIndex(freqs);
         int mostCommonPos = mostCommon - 'a';
@@ -46,11 +44,10 @@ public class CaesarCracker {
         return dkey;
     }
     
-    public String decrypt(String encrypted){
+    public String decrypt(String encrypted) {
         int key = getKey(encrypted);
         CaesarCipher cc = new CaesarCipher(key);
         return cc.decrypt(encrypted);
-        
     }
    
 }

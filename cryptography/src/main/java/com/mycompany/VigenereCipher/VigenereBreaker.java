@@ -5,6 +5,9 @@ import java.util.*;
 import util.*;
 
 public class VigenereBreaker {
+	
+	private String alphabet = "abcdefghijklmnopqrstuvwxyz";
+	
     public String sliceString(String message, int whichSlice, int totalSlices) {
     	StringBuilder result = new StringBuilder();
     	for (int i = whichSlice; i < message.length(); i += totalSlices) {
@@ -61,17 +64,20 @@ public class VigenereBreaker {
     			foundKey = key;
     		}
     	}
-    	System.out.println(Arrays.toString(foundKey));
-    	String alphabet = "abcdefghijklmnopqrstuvwxyz";
-    	for (int elem: foundKey) {
-    		System.out.print(alphabet.charAt(elem));
-    	}
-    	System.out.println();
+    	printFoundKey(foundKey);
+    	
     	return result;
     }
     
+    public void printFoundKey(int[] key) {
+    	System.out.printf("Key array: %s \nFound key is - ", Arrays.toString(key));
+    	for (int elem: key) {
+    		System.out.print(alphabet.charAt(elem));
+    	}
+    	System.out.println();
+    }
+    
     public Character mostCommonCharIn(HashSet<String> dict) {
-    	String alphabet = "abcdefghijklmnopqrstuvwxyz";
     	HashMap<Character, Integer> charsCounts = new HashMap<Character, Integer>();
     	Character mostCommonChar = null;
     	
@@ -112,8 +118,8 @@ public class VigenereBreaker {
     		}
     		System.out.println("Current lang: " + lang + ". Current count: " + currentCount + "\n");
     	}
-    	System.out.println("Message in "+ currLang +":");
-    	System.out.println(result + "\n" + maxCount + "\t" + currLang);
+    	System.out.println("DECRYPTED! MESSAGE IN "+ currLang + ":\n");
+    	System.out.println(result + "\nDECRYPTED!\nLANGUAGE: " + currLang + ", with max count " + maxCount);
     }
     
     public String[] fillDictArray() {
@@ -125,9 +131,7 @@ public class VigenereBreaker {
     	return dictFiles;
     }
 
-    public void breakVigenere () {
-    	// VigenereTestData/athens_keyflute.txt
-        FileResource fr = new FileResource("./src/test/resources/VigenereTestData/messages/secretmessage4.txt");
+    public void breakVigenere (FileResource fr) {
         String output = fr.asString();
     	HashMap<String, HashSet<String>> dicts = new HashMap<String, HashSet<String>>();
     	String[] dictsNames = fillDictArray();

@@ -1,17 +1,15 @@
 package com.mycompany.VigenereCipher;
 
-import util.*;
-
 public class CaesarCipher {
+	
     private String alphabet;
     private String shiftedAlphabet;
     private int theKey;
     
     public CaesarCipher(int key) {
-        theKey = key;
         alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        shiftedAlphabet = alphabet.substring(key) +
-                            alphabet.substring(0, key);
+        theKey = key;
+        shiftedAlphabet = alphabet.substring(key) + alphabet.substring(0, key);
         alphabet = alphabet + alphabet.toLowerCase();
         shiftedAlphabet = shiftedAlphabet + shiftedAlphabet.toLowerCase();
     }

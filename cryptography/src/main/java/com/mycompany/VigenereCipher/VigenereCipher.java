@@ -1,6 +1,5 @@
 package com.mycompany.VigenereCipher;
 
-import util.*;
 import java.util.*;
 
 public class VigenereCipher {
