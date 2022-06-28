@@ -1,0 +1,11 @@
+{
+  "country" : "country.txt",
+  "timeframe" : "timeframe.txt",
+  "adjective" : "adjective.txt",
+  "color" : "color.txt",
+  "fruit" : "fruit.txt",
+  "name" : "name.txt",
+  "verb" : "verb.txt",
+  "animal" : "animal.txt",
+  "noun" : "noun.txt"
+}
