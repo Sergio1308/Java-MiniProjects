@@ -11,25 +11,27 @@ public class WordFrequenciesMapTester {
 	
 	WordFrequenciesMap w;
 	HashMap<String, String[]> testsMap;
+	HashMap<String, Integer> myWords;
 	
 	@Before
 	public void setUp() {
 		testsMap = new HashMap<String, String[]>();
+		w = new WordFrequenciesMap();
+		myWords = w.getMyWords();
 	}
 
 	@Test
 	public void wordFrequenciesMapTests() {
 		fillTestsMap();
-		w = new WordFrequenciesMap();
 		
 		for (String item: testsMap.keySet()) {
 			w.findUnique(item);
-			Integer uniqueWords = w.myWords.size();
+			Integer uniqueWords = myWords.size();
 			String maxValue = w.getValueWithMaxNum();
 			
 			assertEquals(testsMap.get(item)[0], uniqueWords.toString());
 			assertEquals(testsMap.get(item)[1], maxValue);
-			assertEquals(testsMap.get(item)[2], w.myWords.get(maxValue).toString());
+			assertEquals(testsMap.get(item)[2], myWords.get(maxValue).toString());
 		}
 	}
 	
@@ -44,15 +46,15 @@ public class WordFrequenciesMapTester {
 	
 	@SuppressWarnings("unused")
 	private void showWordFrequencies(WordFrequenciesMap w, int numOccurrences) {
-		System.out.println("Number of unique words: " + w.myWords.size());
-		for (String s: w.myWords.keySet()) {
-			int occurences = w.myWords.get(s);
+		System.out.println("Number of unique words: " + myWords.size());
+		for (String s: myWords.keySet()) {
+			int occurences = myWords.get(s);
 			if (occurences > numOccurrences) {
 				System.out.println(occurences + "\t" + s);
 			}
 		}
 		String maxValue = w.getValueWithMaxNum();
-		System.out.println("Most often occured word: '" + maxValue + "' - " + w.myWords.get(maxValue) + " times.");
+		System.out.println("Most often occured word: '" + maxValue + "' - " + myWords.get(maxValue) + " times.");
 		System.out.println("------------------------------------------");
 	}
 }
