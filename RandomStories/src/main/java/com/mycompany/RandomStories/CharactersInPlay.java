@@ -6,14 +6,22 @@ import util.FileResource;
 
 public class CharactersInPlay {
 	
-	protected ArrayList<String> nameOfChars;
-	protected ArrayList<Integer> countChars;
+	private ArrayList<String> nameOfChars;
+	private ArrayList<Integer> countChars;
 	
 	private static String dataSourceDir = "./src/test/resources/WordsDataTest/";
 	
 	public CharactersInPlay() {
 		nameOfChars = new ArrayList<String>();
 		countChars = new ArrayList<Integer>();
+	}
+	
+	public ArrayList<String> getNameOfChars() {
+		return nameOfChars;
+	}
+	
+	public ArrayList<Integer> getcountChars() {
+		return countChars;
 	}
 	
 	protected void update(String person) {

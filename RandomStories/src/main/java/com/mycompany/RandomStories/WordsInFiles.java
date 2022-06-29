@@ -68,7 +68,16 @@ public class WordsInFiles {
 		return wordsNum;
 	}
 	
+	public ArrayList<String> getFilesIn(String word) {
+		return wordsInFiles.get(word);
+	}
+	
 	public void printFilesIn(String word) {
-		System.out.println("Word '" + word + "' appears in: " + String.join(", ", wordsInFiles.get(word)));
+		try {
+			System.out.println("Word '" + word + "' appears in: " + String.join(", ", wordsInFiles.get(word)));
+		} 
+		catch (NullPointerException e) {
+			System.out.println("'" + word + "' not found.");
+		}
 	}
 }

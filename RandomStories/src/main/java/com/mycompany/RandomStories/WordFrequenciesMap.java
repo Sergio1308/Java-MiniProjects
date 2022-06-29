@@ -6,7 +6,7 @@ import util.FileResource;
 
 public class WordFrequenciesMap {
 	
-	protected HashMap<String, Integer> myWords;
+	private HashMap<String, Integer> myWords;
 	
 	private static String dataSourceDir = "WordsDataTest/";
 	
@@ -26,6 +26,10 @@ public class WordFrequenciesMap {
 				myWords.put(s, myWords.get(s) + 1);
 			}
 		}
+	}
+	
+	public HashMap<String, Integer> getMyWords() {
+		return myWords;
 	}
 	
 	public String getValueWithMaxNum() {
