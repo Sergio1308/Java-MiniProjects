@@ -1,12 +1,13 @@
 # Java-MiniProjects
 This repository contains several mini-projects using Java programming language that have been completed to gain practice and skill training.
 # Cryptography
-This mini-project is about the basics of cryptography, the science of keeping information private and secure. It contains cryptographic systems, which were used from the Roman Empire through the early 1900s, so these ciphers have been implemented, also implemented an algorithm for breaking them. 
-The project involved not only string processing, but also arrays—a way to store an indexable sequence of elements. 
+This mini-project is about the basics of cryptography, the science of keeping information private and secure. It contains cryptographic systems, which were used from the Roman Empire through the early 1900s, like Caesar Cipher and Vigenère Cipher (a more complex version of the Caesar Cipher). These ciphers have been implemented, also created an algorithm for breaking them.
 Skills gained:
-- combine Strings using concatenation; 
-- build Strings within a Java program using StringBuilder; 
+- combine Strings using concatenation and build Strings using StringBuilder; 
+- effectively use HashSet and HashMap;
 - use arrays (and some other collections like HashMap, HashSet, ArrayList) to store and manipulate collections of data; 
+- expand an algorithm from solving a simpler problem to handle broader, more complex problems;
+- design and modify program code involving a more complex collection of classes, methods and data;
 - refactor programs for improved organization using object-oriented principles; 
 - and practice effective algorithm design.
 
