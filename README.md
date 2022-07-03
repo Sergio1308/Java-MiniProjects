@@ -18,4 +18,20 @@ This project consists of two packages in which the logic of the following decisi
 - The project structure is fully consistent with the Maven standart directory layout, the project was generated using [maven quickstart archetype](https://maven.apache.org/archetypes/maven-archetype-quickstart/) with resources folder.
 
 The project was implemented and **slightly changed** *(somewhere the code was optimized, somewhere the project structure was changed, somewhere unnecessary classes were removed with a non-optimal implementation of the algorithm, created for educational and demonstration purposes, and somewhere test cases were optimally implemented)* thanks to the Coursera course [Java Programming: Arrays, Lists, and Structured Data](https://www.coursera.org/learn/java-programming-arrays-lists-data/) from Duke University.
+
 # Telling Random Stories from Templates
+This mini-project is about a randomly generated story from templates. For example, the result could be something like a story about bald lions that change people's lives, or that fluffy dinosaurs get things done in a jiffy. 
+Skills gained:
+- program a word frequency counter to analyze any input text file; 
+- select and substitute words from a list into a document template using both ArrayList and HashMap; 
+- create new lists to use in templates; 
+- recognize brittle code; 
+- improve code with flexible, object-oriented design.
+
+# Web Server Logs
+This mini-project is about how web server logs store information about visitors to a website and how to access information like user IP address, date and time of access, and more.
+
+Skills gained:
+- read information from a web server log; 
+- count the number of unique visitors to the website; 
+- count the number of times each visitor uses the website.
